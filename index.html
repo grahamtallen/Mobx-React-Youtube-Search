@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      .example-appear {
+        opacity: 0.01;
+        transform: translateX(20em);
+      }
+
+      .example-appear.example-appear-active {
+        opacity: 1;
+        transform: translateX(0em);
+        transition: all 1000ms ease;
+      }
+    </style>
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
