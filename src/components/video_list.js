@@ -2,24 +2,19 @@
  * Created by grahamallen on 6/20/16.
  */
 import React from 'react'
-import VideoListItem from './video_list_item'
 import CounterStore from '../stores/CounterStore'
 import { observer } from 'mobx-react'
 import VideoStore from '../stores/VideoStore'
 
 
-const VideoList = observer((props) => {
-    const videoListItems = VideoStore.videos.map((video) =>
-            <VideoListItem
-                key={video.etag}
-                video={video}
-            />
-    );
+const VideoList = observer(() => {
 
     return (
         <div>
             <ul className="col-md-4 list-group">
-                { videoListItems }
+                <li className="list-group-item"><a href={ VideoStore.user.html_url }>{ VideoStore.user.html_url }</a></li>
+                <li className="list-group-item">{ VideoStore.user.followers }</li>
+                <li className="list-group-item">{ VideoStore.user.public_repos }</li>
             </ul>
             <h2>{ CounterStore.counter }</h2>
         </div>

@@ -4,6 +4,7 @@
 import { observable, autorun } from 'mobx'
 import YTSearch from 'youtube-api-search'
 const API_KEY = "AIzaSyDN8R0gS8T29nr6aFgYXKyGLwe42BRTkok";
+import $ from 'jquery'
 
 class VideoStore {
 
@@ -23,30 +24,27 @@ class VideoStore {
     }];
     @observable selectedVideo = this.videos[0];
     @observable searchTerm = '';
+    @observable user = {
+        avatar_url: "",
+        name: "Loading..."
+    };
 
 
-    constructor() {
-
-        autorun(() => {
-            if (this.searchTerm === '' ) {
+    search = (term) => {
+            if (term === '' ) {
                 return
             }
-            YTSearch({key: API_KEY, term: this.searchTerm}, (videos) => {
-                this.videos = videos;
-                this.selectedVideo = this.videos[0];
-            });
-        });
-    }
+            var url = "https://api.github.com/users/" + term;
+            $.ajax({
+                url: url,
+                success: (data) => {
+                    console.log(data);
+                    this.user = data;
+                }
+            })
+        };
 
-    getVideoUrl = (video) => {
-        const videoId = video.id.videoId;
-        if (videoId) {
-            const url = `https://www.youtube.com/embed/${videoId}`;
-            return url
-        } else {
-            return ""
-        }
-    }
+
 
 }
 

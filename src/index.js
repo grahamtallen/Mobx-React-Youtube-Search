@@ -30,7 +30,7 @@ class App extends Component {
                                          transitionAppear = {true} transitionAppearTimeout = {1000}
                                          transitionEnter = {false} transitionLeave = {false}>
 
-                        <h4>Search Youtube</h4>
+                        <h4>Search Github</h4>
                     <SearchBar />
                     <VideoDetail/>
                     <VideoList />

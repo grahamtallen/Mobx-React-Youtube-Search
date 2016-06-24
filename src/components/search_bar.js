@@ -17,9 +17,17 @@ class SearchBar extends Component {
             <input
                 value={ VideoStore.searchTerm }
                 onChange={event => VideoStore.searchTerm = event.target.value}
+                onKeyPress={this.handleKeyPress}
             />
             </div>
         );
+    }
+
+    handleKeyPress(target) {
+        if(target.charCode==13){
+            VideoStore.search(VideoStore.searchTerm)
+        }
+
     }
 };
 
