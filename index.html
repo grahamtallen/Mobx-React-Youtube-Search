@@ -2,6 +2,23 @@
 <html>
   <head>
     <style>
+      body {
+        color: #eceeef !important;
+        background-color: #002182 !important;
+      }
+
+      .form-control {
+        border: 0px solid !important;
+      }
+
+      .form-control, .list-group-item {
+        border-bottom: 1px solid #eceeef !important;
+        border-radius: 0% !important;
+        background-color: #002182 !important;
+        color: #eceeef !important;
+      }
+
+
       .example-appear {
         opacity: 0.01;
         transform: translateX(20em);
@@ -12,6 +29,34 @@
         transform: translateX(0em);
         transition: all 1000ms ease;
       }
+
+      .fade-appear {
+        opacity: 0.01;
+      }
+
+      .fade-appear.fade-appear-active {
+        opacity: 1;
+        transition: all 1000ms ease;
+      }
+
+      .form-control {
+        margin: 20px;
+        margin-bottom: 7px;
+      }
+
+      .logo {
+        margin-left: 3%;
+      }
+
+      a > p {
+        color: #eceeef;
+      }
+
+      .media-left {
+        display: block !important;
+      }
+
+
     </style>
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">

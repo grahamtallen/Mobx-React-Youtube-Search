@@ -4,13 +4,14 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import SearchBar from './components/search_bar'
-import VideoList from './components/video_list'
-import VideoDetail from './components/video_detail'
+import RepoList from './components/repo_list'
+import GithubDetail from './components/github_detail'
 import Counter from './components/counter'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
+import Alert from './components/alert'
+import SortableList from './components/sortable_list'
 import CounterStore from './stores/CounterStore'
-import VideoStore from './stores/VideoStore'
+import GithubStore from './stores/GithubStore'
 
 import { observer } from 'mobx-react'
 
@@ -20,6 +21,9 @@ import DevTools from 'mobx-react-devtools';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            items: [1, 2, 3, 4, 5, 6]
+        };
 
     }
 
@@ -30,14 +34,10 @@ class App extends Component {
                                          transitionAppear = {true} transitionAppearTimeout = {1000}
                                          transitionEnter = {false} transitionLeave = {false}>
 
-                        <h4>Search Github</h4>
                     <SearchBar />
-                    <VideoDetail/>
-                    <VideoList />
-                    <h3>Counter Component</h3>
-                    <Counter/>
-                    <p>Search Term = { VideoStore.searchTerm }</p>
-                    <button onClick={ () => VideoStore.searchTerm = "Surfboards" }>Search Surfboards</button>
+                    <Alert />
+                    <GithubDetail/>
+                    <RepoList />
                     <DevTools />
                 </ReactCSSTransitionGroup>
 

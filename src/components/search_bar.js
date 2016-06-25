@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import VideoStore from '../stores/VideoStore'
+import GithubStore from '../stores/GithubStore'
 
 
 @observer
@@ -14,18 +14,21 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-            <input
-                value={ VideoStore.searchTerm }
-                onChange={event => VideoStore.searchTerm = event.target.value}
-                onKeyPress={this.handleKeyPress}
-            />
+                <input
+                    className="form-control"
+                    placeholder="Search Github"
+                    value={ GithubStore.searchTerm }
+                    onChange={event => GithubStore.searchTerm = event.target.value}
+                    onKeyPress={this.handleKeyPress}
+                />
+                <img className="logo" src="http://i.imgur.com/OCHWcon.png" width="40px" height="40px"/>
             </div>
         );
     }
 
     handleKeyPress(target) {
         if(target.charCode==13){
-            VideoStore.search(VideoStore.searchTerm)
+            GithubStore.search(GithubStore.searchTerm)
         }
 
     }
