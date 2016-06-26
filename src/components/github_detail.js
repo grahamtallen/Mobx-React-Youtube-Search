@@ -5,6 +5,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import GithubStore from '../stores/GithubStore'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import CalendarHeatmap from 'react-calendar-heatmap';
 
 
 const GithubDetail = observer(
@@ -12,7 +13,13 @@ const GithubDetail = observer(
         if (GithubStore.user.avatar_url === "") {
             return <div></div>
         }
-        const selected_video = GithubStore.selectedVideo;
+
+        function customOnClick(value) {
+            if (value) {
+                alert(`${value.date} - ${value.count} commits`);
+            }
+        }
+        const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
         return (
             <div>
                 <ReactCSSTransitionGroup transitionName = "example"
@@ -36,6 +43,20 @@ const GithubDetail = observer(
                             <a target="_blank" href={ GithubStore.user.html_url }>{ GithubStore.user.html_url }</a>
                         </div>
                     </div>
+                    <CalendarHeatmap
+                        endDate={new Date("2015-12-01")}
+                        numDays={400}
+                        values={GithubStore.returnDates()}
+                        titleForValue={(value) => `Date is `}
+                        tooltipDataAttrs={customTooltipDataAttrs}
+                        onClick={customOnClick}
+                        classForValue={(value) => {
+                            if (!value) {
+                              return 'color-empty';
+                            }
+                            return `color-scale-${value.count}`;
+                          }}
+                    />
                 </div>
                 </ReactCSSTransitionGroup>
             </div>

@@ -9,9 +9,10 @@ import GithubDetail from './components/github_detail'
 import Counter from './components/counter'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Alert from './components/alert'
-import SortableList from './components/sortable_list'
+
 import CounterStore from './stores/CounterStore'
 import GithubStore from './stores/GithubStore'
+
 
 import { observer } from 'mobx-react'
 
@@ -22,10 +23,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [1, 2, 3, 4, 5, 6]
         };
 
     }
+
 
     render() {
         return (
@@ -39,6 +40,12 @@ class App extends Component {
                     <GithubDetail/>
                     <RepoList />
                     <DevTools />
+                    <div>
+                        <br/>
+                        <br/>
+
+                    </div>
+
                 </ReactCSSTransitionGroup>
 
             </div>

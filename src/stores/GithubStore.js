@@ -7,7 +7,7 @@ const API_KEY = "AIzaSyDN8R0gS8T29nr6aFgYXKyGLwe42BRTkok";
 import $ from 'jquery'
 import repos from './repoData'
 import Sortable from 'react-sortablejs';
-
+import _ from 'lodash'
 
 class GithubStore {
     @observable repos_url = "";
@@ -18,7 +18,23 @@ class GithubStore {
         avatar_url: "",
         name: "Loading..."
     };
-    @observable items = [1, 2, 3, 4, 5, 6];
+
+    returnDates = () => {
+        // TODO make work
+        let dates = [];
+        this.repos.map((repo) => {
+            var date = repo.created_at.slice(0, 10);
+            $.each(dates, (key, value) => {
+                if (value.date === date) {
+                    value.count++
+                }
+            });
+            console.log(date);
+            dates.push({ date: date, count: 1 });
+        });
+
+        return dates
+    };
 
     search = (term) => {
         var url = "https://api.github.com/users/" + term;
