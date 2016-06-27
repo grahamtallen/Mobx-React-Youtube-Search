@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import SearchBar from './components/search_bar'
+import NewTask from './components/new_task'
 import RepoList from './components/repo_list'
 import GithubDetail from './components/github_detail'
 import Counter from './components/counter'
@@ -32,16 +32,13 @@ class App extends Component {
     render() {
         return (
             <div>
+                <RepoList />
+                <NewTask />
                 <ReactCSSTransitionGroup transitionName = "example"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
-                    <SearchBar />
-                    <Alert />
-                    <GithubDetail/>
-                    <RepoList />
-                    <DevTools />
                 </ReactCSSTransitionGroup>
 
             </div>

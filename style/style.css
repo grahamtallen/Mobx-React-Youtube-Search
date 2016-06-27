@@ -5,12 +5,12 @@
 
 body {
     color: #eceeef !important;
-    background-color: #002182 !important;
+    background-color: black !important;
 }
 
 .form-control {
     border: 0px solid !important;
-    background-color: #002182 !important;
+    background-color: black !important;
     color: #eceeef !important;
     border-bottom: 1px solid #eceeef !important;
     border-radius: 0% !important;
@@ -21,12 +21,12 @@ body {
 }
 
 .list-group-item {
-    background-color: #FFFA75 !important;
-    color: #1e6823 !important;
+    background-color: #002182 !important;
+    color: white !important;
 }
 
 .list-group-item-name {
-    color: #1e6823 !important
+    color: #eceeef !important
 }
 
 
