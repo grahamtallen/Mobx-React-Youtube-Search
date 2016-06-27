@@ -14,6 +14,7 @@ import CounterStore from './stores/CounterStore'
 import GithubStore from './stores/GithubStore'
 
 
+
 import { observer } from 'mobx-react'
 
 import DevTools from 'mobx-react-devtools';
@@ -32,20 +33,15 @@ class App extends Component {
         return (
             <div>
                 <ReactCSSTransitionGroup transitionName = "example"
-                                         transitionAppear = {true} transitionAppearTimeout = {1000}
-                                         transitionEnter = {false} transitionLeave = {false}>
-
+                                         transitionAppear = {true}
+                                         transitionAppearTimeout = {1000}
+                                         transitionEnter = {false}
+                                         transitionLeave = {false}>
                     <SearchBar />
                     <Alert />
                     <GithubDetail/>
                     <RepoList />
                     <DevTools />
-                    <div>
-                        <br/>
-                        <br/>
-
-                    </div>
-
                 </ReactCSSTransitionGroup>
 
             </div>

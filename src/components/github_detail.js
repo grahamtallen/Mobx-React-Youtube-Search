@@ -16,7 +16,7 @@ const GithubDetail = observer(
 
         function customOnClick(value) {
             if (value) {
-                alert(`${value.date} - ${value.count} commits`);
+                alert(`${value.date} - ${value.count} repos`);
             }
         }
         const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
@@ -44,7 +44,7 @@ const GithubDetail = observer(
                         </div>
                     </div>
                     <CalendarHeatmap
-                        endDate={new Date("2015-12-01")}
+                        endDate={new Date()}
                         numDays={400}
                         values={GithubStore.returnDates()}
                         titleForValue={(value) => `Date is `}

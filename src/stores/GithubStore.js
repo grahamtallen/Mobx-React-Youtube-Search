@@ -19,18 +19,21 @@ class GithubStore {
         name: "Loading..."
     };
 
+    @observable reposCount = 10;
+
     returnDates = () => {
         // TODO make work
         let dates = [];
         this.repos.map((repo) => {
             var date = repo.created_at.slice(0, 10);
+            var dateobj = { date: date, count: 1 };
             $.each(dates, (key, value) => {
                 if (value.date === date) {
-                    value.count++
+                    dateobj.count++;
+                    console.log(dateobj);
                 }
             });
-            console.log(date);
-            dates.push({ date: date, count: 1 });
+            dates.push(dateobj);
         });
 
         return dates
@@ -66,10 +69,10 @@ class GithubStore {
 
     sortAlphaBeta = (evt) => {
         this.repos = this.repos.sort(function(a, b) {
-            if (a.name < b.name) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
                 return -1;
             }
-            if (a.name > b.name) {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
             }
             return 0;
