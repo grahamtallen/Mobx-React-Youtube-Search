@@ -23,7 +23,8 @@ class FirebaseItems {
         this.user_history.push(newItem);
         var newId = this.newItem.id;
         newId = newId + 1;
-        this.newItem = { id: newId, title: ""}
+        this.newItem = { id: newId, title: "", endTime: "Current Task"};
+        this.user_history[this.user_history.length - 1].endTime = date.toString();
     };
 
 

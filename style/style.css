@@ -5,12 +5,12 @@
 
 body {
     color: #eceeef !important;
-    background-color: black !important;
+    background-color: lightgray !important;
 }
 
 .form-control {
     border: 0px solid !important;
-    background-color: black !important;
+    background-color: lightgray !important;
     color: #eceeef !important;
     border-bottom: 1px solid #eceeef !important;
     border-radius: 0% !important;
