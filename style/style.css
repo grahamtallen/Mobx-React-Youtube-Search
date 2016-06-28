@@ -21,12 +21,10 @@ body {
 }
 
 .list-group-item {
-    background-color: #FFFA75 !important;
-    color: #1e6823 !important;
+    background-color: rgba(0, 0, 0, 0.4)  !important;
 }
 
 .list-group-item-name {
-    color: #1e6823 !important
 }
 
 

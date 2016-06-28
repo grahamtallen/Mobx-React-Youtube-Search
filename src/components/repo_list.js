@@ -8,7 +8,6 @@ import GithubStore from '../stores/GithubStore'
 import RepoListItem from './RepoListItem'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import FlipMove from 'react-flip-move'
-import Slider from './slider'
 
 const RepoList = observer(() => {
 
@@ -34,7 +33,6 @@ const RepoList = observer(() => {
                     <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.sortAlphaBeta}>Alphabetically</button>
                     <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.numOfWatchers}>By # of watchers</button>
                 </div>
-                <Slider />
                 <FlipMove
                     className="col-md-4 list-group"
                     easing="ease-in-out"
