@@ -32,8 +32,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <RepoList />
                 <NewTask />
+                <RepoList />
                 <ReactCSSTransitionGroup transitionName = "example"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}

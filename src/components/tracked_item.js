@@ -12,11 +12,23 @@ const TrackedItem = observer(
             <div className="list-group-item">
                 <div className="video-list media">
                     <div className="media-left">
-                            <p className="list-group-item-name">{ item.title }</p>
                     </div>
                     <div className="media-right">
-                        <p>Start: { item.startTime }</p>
-                        <p>End: { item.endTime }</p>
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p className="list-group-item-name">{ item.title }</p>
+                                    </td>
+                                    <td>
+                                        <p>Start: { item.startTime }</p>
+                                    </td>
+                                    <td>
+                                        <p>End: { item.endTime }</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

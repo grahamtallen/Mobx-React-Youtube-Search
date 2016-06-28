@@ -28,7 +28,7 @@ class SearchBar extends Component {
 
     handleKeyPress(target) {
         if(target.charCode==13){
-            GithubStore.search(GithubStore.searchTerm)
+            FirebaseStore.
         }
 
     }

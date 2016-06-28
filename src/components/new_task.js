@@ -24,13 +24,16 @@ class NewTask extends Component {
                     onChange={event => FirebaseItems.newItem.title = event.target.value}
                     onKeyPress={this.handleKeyPress}
                 />
+                <button className="btn btn-danger-outline" onClick={FirebaseItems.switchToday}>
+                    Today
+                </button>
             </div>
         );
     }
 
     handleKeyPress(target) {
         if(target.charCode==13){
-            FirebaseItems.addItem
+            FirebaseItems.addItem();
         }
 
     }
