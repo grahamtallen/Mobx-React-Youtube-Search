@@ -12,27 +12,6 @@ class SearchBar extends Component {
         super(props);
     }
 
-    render() {
-        return (
-            <div>
-                <input
-                    className="form-control"
-                    placeholder="Search Github"
-                    value={ GithubStore.searchTerm }
-                    onChange={event => GithubStore.searchTerm = event.target.value}
-                    onKeyPress={this.handleKeyPress}
-                />
-                <img className="logo" src="http://i.imgur.com/OCHWcon.png" width="40px" height="40px"/>
-            </div>
-        );
-    }
-
-    handleKeyPress(target) {
-        if(target.charCode==13){
-            GithubStore.search(GithubStore.searchTerm)
-        }
-
-    }
 
     render() {
         return (
@@ -58,9 +37,9 @@ class SearchBar extends Component {
                     <span className="input-group-addon" id="basic-addon1"><i className="fa fa-filter"></i></span>
                     <input className="form-control"
                            placeholder="Filter by Title, Inventory #, Description..."
-                           value={ CsStore.searchTerm }
-                           onChange={event => CsStore.searchTerm = event.target.value}
-                           onKeyPress={this.handleKeyPress}
+                           value={ CsStore.filterTerm }
+                            onChange={event => CsStore.filterTerm = event.target.value}
+                            onKeyPress={this.handleKeyPress}
                     />
 
                 </div>
@@ -72,7 +51,7 @@ class SearchBar extends Component {
 
     handleKeyPress(target) {
         if(target.charCode==13){
-            CsStore.search(CsStore.searchTerm)
+            CsStore.delayedFilterTerm()
         }
 
     }

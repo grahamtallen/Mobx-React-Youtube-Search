@@ -12,13 +12,17 @@ import csData from './demoJSON'
 
 class CsStore {
     @observable repos_url = "";
-    @observable repos = repos;
     @observable searchTerm = '';
+    @observable filterTerm = '';
+    @observable delayedTerm = '';
     @observable alert = '';
     @observable user = {
         avatar_url: "",
         name: "Loading..."
     };
+
+    delayedFilterTerm = () => {  this.delayedTerm = this.filterTerm  };
+
 
     @observable items = csData.data;
 
@@ -57,6 +61,8 @@ class CsStore {
             }
         })
     };
+
+
     getRepos = (url) => {
         $.ajax({
             url: url,

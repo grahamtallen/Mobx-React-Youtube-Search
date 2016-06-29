@@ -11,11 +11,16 @@ import FlipMove from 'react-flip-move'
 
 const RepoList = observer(() => {
 
-    const Repos = CsStore.items.map((item) =>
-        <RepoListItem
-            key={item.objectid}
-            item={item}
-        />
+    const Repos = CsStore.items.map((item) => {
+            console.log(item.title.indexOf("U"));
+            if (item.title.indexOf(CsStore.delayedTerm) === -1) {
+                return;
+            }
+            return <RepoListItem
+                key={item.objectid}
+                item={item}
+            />
+        }
     );
 
 
