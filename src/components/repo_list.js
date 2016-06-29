@@ -34,12 +34,12 @@ const RepoList = observer(() => {
                     <FlipMove
                         className=""
                         easing="ease-in-out"
-                        delay="0"
+                        delay="500"
                         staggerDelayBy="0"
                         staggerDurationBy="30"
-                        duration="600"
+                        duration="700"
                         enterAnimation="accordionHorizontal"
-                        leaveAnimation="accordionHorizontal"
+                        leaveAnimation="elevator"
                     >
                         { Repos }
                     </FlipMove>

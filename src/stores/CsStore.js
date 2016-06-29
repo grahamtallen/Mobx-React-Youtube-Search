@@ -28,6 +28,34 @@ class CsStore {
 
     @observable reposCount = 10;
 
+    @observable sessionid = "ed27e816-45ba-4835-8a2a-ce583109b5c2";
+
+    login() {
+
+            return $.ajax({
+
+            url: "https://privateapi.collectorsystems.com/authenticate.aspx",
+            type: 'POST',
+            data: 'UserName=way2b1api&Password=uGsQgoQHzxkx22',
+            success: function (data) {
+                this.sessionId = data.result.sessionid;
+
+
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+        })
+    }
+
+    getItemUrl(item) {
+        let url = `https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${this.sessionid}`;
+        return url
+    }
+
+
+
     returnDates = () => {
         // TODO make work
         let dates = [];
