@@ -8,6 +8,7 @@ import GithubStore from '../stores/GithubStore'
 import RepoListItem from './RepoListItem'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import FlipMove from 'react-flip-move'
+import FilterBar from './filter_bar'
 
 const RepoList = observer(() => {
 
@@ -15,11 +16,15 @@ const RepoList = observer(() => {
         return <div></div>
     }
 
-    const Repos = GithubStore.repos.map((repo) =>
-        <RepoListItem
+    const Repos = GithubStore.repos.map((repo) => {
+        if (repo.name.indexOf(GithubStore.delayedTerm) === -1 && repo.description.indexOf(GithubStore.delayedTerm) === -1) {
+            return;
+        }
+        return <RepoListItem
             key={repo.id}
             repo={repo}
-        />
+            />
+        }
     );
 
 
@@ -28,6 +33,7 @@ const RepoList = observer(() => {
             <ReactCSSTransitionGroup transitionName = "fade"
                                      transitionAppear = {true} transitionAppearTimeout = {1000}
                                      transitionEnter = {false} transitionLeave = {false}>
+                <FilterBar />
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.reverseOrder}>Reverse Order</button>
                     <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.sortAlphaBeta}>Alphabetically</button>

@@ -13,11 +13,23 @@ class GithubStore {
     @observable repos_url = "";
     @observable repos = repos;
     @observable searchTerm = '';
+    @observable filterTerm = '';
+    @observable delayedTerm = '';
     @observable alert = '';
     @observable user = {
         avatar_url: "",
         name: "Loading..."
     };
+    delayedFilterTerm = () => {
+            this.delayedTerm = this.filterTerm
+    };
+
+    showAllRepos = autorun(() => {
+        if (this.filterTerm === '') {
+            console.log(this.filterTerm);
+            this.delayedTerm = ''
+        }
+    });
 
     @observable reposCount = 10;
 
@@ -68,6 +80,7 @@ class GithubStore {
     };
 
     sortAlphaBeta = (evt) => {
+        console.log(this.repos);
         this.repos = this.repos.sort(function(a, b) {
             if (a.name.toLowerCase() < b.name.toLowerCase()) {
                 return -1;
@@ -90,7 +103,6 @@ class GithubStore {
             }
             return 0;
         });
-        console.log(this.repos[this.repos.length - 1]);
     };
 }
 

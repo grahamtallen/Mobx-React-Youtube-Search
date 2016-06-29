@@ -15,6 +15,7 @@ const RepoListItem = observer(
                     </div>
                     <div className="media-right">
                         <p>Watchers: { repo.watchers }</p>
+                        <p>{ repo.description }</p>
                     </div>
                 </div>
             </div>
