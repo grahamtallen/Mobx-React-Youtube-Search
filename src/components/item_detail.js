@@ -10,7 +10,7 @@ import CalendarHeatmap from 'react-calendar-heatmap';
 
 const ItemDetail = observer(
     () => {
-        if (false) {
+        if (!CsStore.itemSelected) {
             return <div></div>
         }
         return (
@@ -20,7 +20,7 @@ const ItemDetail = observer(
                                          transitionEnter = {false} transitionLeave = {false}>
                     <div className="superbox">
                         <div className="superbox-show">
-                            <button id="closeDetailButton" className="btn btn-block btn-secondary pull-right">
+                            <button onClick={() => { CsStore.itemSelected = false }} id="closeDetailButton" className="btn btn-block btn-secondary pull-right">
                                 Close
                             </button>
                             <h4 className="galleryObjectTitle">{CsStore.selected_item.title}</h4>

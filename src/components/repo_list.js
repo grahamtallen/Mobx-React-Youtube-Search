@@ -11,6 +11,10 @@ import FlipMove from 'react-flip-move'
 
 const RepoList = observer(() => {
 
+    if (CsStore.itemSelected) {
+        return <div></div>
+    }
+
     const Repos = CsStore.items.map((item) => {
             console.log(item.title.indexOf("U"));
             if (item.title.indexOf(CsStore.delayedTerm) === -1) {

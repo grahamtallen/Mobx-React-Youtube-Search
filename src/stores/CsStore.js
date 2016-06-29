@@ -20,6 +20,7 @@ class CsStore {
         avatar_url: "",
         name: "Loading..."
     };
+    @observable itemSelected = false;
 
     delayedFilterTerm = () => {  this.delayedTerm = this.filterTerm  };
 
