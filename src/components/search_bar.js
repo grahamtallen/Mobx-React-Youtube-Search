@@ -30,7 +30,6 @@ class SearchBar extends Component {
                             <li className="btn">Price</li>
                         </ul>
                         <button className="btn btn-secondary reverseButton" onClick={CsStore.reverseOrder}><i className="fa fa-sort-amount-asc"></i></button>
-
                     </div>
                 </div>
                 <div className="inputDiv input-group col-md-6">

@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import SearchBar from './components/search_bar'
 import RepoList from './components/repo_list'
-import GithubDetail from './components/github_detail'
+import ItemDetail from './components/item_detail'
 import Counter from './components/counter'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Alert from './components/alert'
@@ -32,8 +32,10 @@ class App extends Component {
     render() {
         return (
             <div>
+                <div id="gallery" className="wrapper">
                 <SearchBar />
                 <RepoList />
+                <ItemDetail />
                 <ReactCSSTransitionGroup transitionName = "example"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}
@@ -41,7 +43,7 @@ class App extends Component {
                                          transitionLeave = {false}>
                     <DevTools />
                 </ReactCSSTransitionGroup>
-
+                </div>
             </div>
         )
     }

@@ -25,6 +25,8 @@ class CsStore {
 
 
     @observable items = csData.data;
+    @observable selected_item = this.items[0];
+
 
     @observable reposCount = 10;
 

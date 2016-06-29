@@ -9,7 +9,7 @@ const RepoListItem = observer(
         var sessionId = CsStore.sessionid;
 
         return (
-            <div className="superbox-list">
+            <div onClick={() => { CsStore.selected_item = item }} className="superbox-list">
                         <p className="searchedValue">{ item.inventorynumber }</p>
                         <img className="superbox-img"
                              src={CsStore.getItemUrl(item)} />

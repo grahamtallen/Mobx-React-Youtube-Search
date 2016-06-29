@@ -6,7 +6,7 @@
  */
 import React from 'react'
 import { observer } from 'mobx-react'
-import CsStore from '../stores/CsStore'
+import weCsStore from '../stores/CsStore'
 
 
 const Alert = observer(
