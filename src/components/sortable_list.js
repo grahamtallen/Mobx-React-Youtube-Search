@@ -4,7 +4,7 @@
 import React from 'react';
 import Sortable from 'react-sortablejs';
 import { observer } from 'mobx-react'
-import GithubStore from '../stores/GithubStore'
+import CsStore from '../stores/CsStore'
 
 // Functional Component
 const SortableList = observer(({ items, onChange }) => {
@@ -14,7 +14,7 @@ const SortableList = observer(({ items, onChange }) => {
 
     return (
         <div>
-            <button type="button" onClick={GithubStore.reverseOrder}>Reverse Order</button>
+            <button type="button" onClick={CsStore.reverseOrder}>Reverse Order</button>
             <Sortable
                 // Sortable options (https://github.com/RubaXa/Sortable#options)
                 options={{

@@ -1,68 +1,430 @@
-.react-calendar-heatmap .color-scale-1 { fill: #d6e685; }
-.react-calendar-heatmap .color-scale-2 { fill: #8cc665; }
-.react-calendar-heatmap .color-scale-3 { fill: #44a340; }
-.react-calendar-heatmap .color-scale-4 { fill: #1e6823; }
+/*
+	Todd Motto Labs
+	URL: www.toddmotto.com
+*/
 
+/*------------------------------------*\
+*/
+
+* {
+    font-family: "Roboto";
+}
+
+.objectDescriptionText, .descriptionHeading {
+    display: inherit;
+    position: absolute;
+    bottom: 12%;
+    right: 10%;
+    font-weight: 100;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.objectDescriptionText {
+    width: 60%;
+    padding: 8px
+}
+
+.descriptionHeading {
+    width: 9%;
+}
+
+
+
+h3, h2 {
+    font-family: "Roboto";
+    font-weight: 100;
+}
+
+.tableHere {
+    padding-left: 67%;
+
+}
+
+
+img {
+    height: 336px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3, h2, h5, td {
+    /*   color: rgb(179, 0, 0); */
+    /*   color: rgb(255, 102, 102); */
+    color: black;
+    font-size: 20px;
+    font-weight: 100;
+
+}
+
+tr td.field, tr td.fieldAttribute {
+    white-space:nowrap;
+    padding: 6px;
+}
+
+.table-data tbody tr:last-child td:after {
+    position: relative;
+}
+
+
+.carousel-caption {
+    top: 0;
+    left: 0px;
+    right: 15px;
+    height: 484px;
+    width: 1280px;
+}
+
+.carousel-caption {
+    padding: 0 20px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.carousel-location {
+    top: 0;
+    left: 0;
+}
+
+.selectpicker {
+    bottom: 20px;
+    position: absolute;
+    left: 50%;
+}
+
+.bootstrap-select {
+    width: 50% !important;
+}
+
+.dropdown-toggle {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.objectTitle.clicked, .objectTitleAgain.clicked {
+
+}
+
+.objectTitleAgain  {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 15%;
+}
+
+.table-data {
+    width: 14%;
+    margin-top: 60px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.table-data tbody tr:last-child td:after {
+    position: relative;
+}
+
+.carousel:hover {
+    cursor: pointer;
+}
+
+
+.bootstrap-select {
+    margin-left: 25% !important;
+
+}
+
+
+
+.dropdown-menu {
+    max-height: 315px !important;
+    box-shadow: 0 1px 3px lightgrey;
+}
+
+.filter-option {
+    text-align: center;
+}
+.field {
+    position: relative;
+    text-align: left;
+}
+.field:before, .field:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+
+}
+.field:before {
+    top: -3px;
+    width: 3px;
+}
+.field:after {
+    right: -3px;
+    height: 3px;
+    background-image: -webkit-linear-gradient(left, lightgrey, transparent);
+    background-image: -moz-linear-gradient(left, #000, transparent);
+    background-image: -o-linear-gradient(left, #000, transparent);
+}
+
+.fieldAttribute {
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+}
+
+.fieldAttribute:hover, .dropdown-menu > li:hover, .dropdown-toggle:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu > li {
+    display: inherit;
+}
+
+.noTop {
+    border-top: 0px !important;
+}
+
+.darkBackground {
+    /*background: rgba(25, 91, 112, 0.4); */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003166+27,1c3344+61,002d49+63&0.65+1,0+77 */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0, 49, 102, 0.65) 1%, rgba(0, 49, 102, 0.43) 27%, rgba(28, 51, 68, 0.14) 61%, rgba(0, 45, 73, 0.12) 63%, rgba(0, 45, 73, 0) 77%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 49, 102, 0.65) 1%, rgba(0, 49, 102, 0.43) 27%, rgba(28, 51, 68, 0.14) 61%, rgba(0, 45, 73, 0.12) 63%, rgba(0, 45, 73, 0) 77%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(0, 49, 102, 0.65) 1%, rgba(0, 49, 102, 0.43) 27%, rgba(28, 51, 68, 0.14) 61%, rgba(0, 45, 73, 0.12) 63%, rgba(0, 45, 73, 0) 77%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6003166', endColorstr='#00002d49', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+.carousel-control {
+    background-image: none !important;
+
+}
+.glyphicon {
+    color: rgb(0, 0, 0) !important;
+    top: 50%;
+    font-size: 40px;
+    position: absolute;
+    display: inline-block;
+
+}
+
+/*------------------------------------*/
+
+.galleryObjectTitle, .galleryImgDiv > p {
+    padding: 10px;
+}
+
+#leftColumnClone {
+    margin: 6%;
+}
+
+
+
+h3, h2, h4, h5, td {
+    /*   color: rgb(179, 0, 0); */
+    /*   color: rgb(255, 102, 102); */
+    color: black;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: "Roboto";
+
+}
+.noShow {
+    display: none;
+}
+
+.superbox-img {
+    height: 200px;
+}
+
+.superbox-show {
+    min-height: 0px;
+}
+
+.superbox-list {
+    padding: 4px;
+    border: 0.2px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.superbox-current-img {
+    padding: 4px;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+/*.superbox-list.active:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #2d353c;
+	margin-left: -10px;
+}*/
+
+*,
+*:after,
+*:before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
 body {
-    color: #eceeef !important;
-    background-color: #002182 !important;
+    background: white;
 }
-
-.form-control {
-    border: 0px solid !important;
-    background-color: #002182 !important;
-    color: #eceeef !important;
-    border-bottom: 1px solid #eceeef !important;
-    border-radius: 0% !important;
+ul {
+    list-style:none;
 }
-
-.list-group-item {
-    margin-bottom: 5px !important;
+img {
+    vertical-align:bottom;
 }
+.wrapper {
+    max-width:1280px;
+    margin:0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 
-.list-group-item {
-    background-color: #FFFA75 !important;
-    color: #1e6823 !important;
 }
-
-.list-group-item-name {
-    color: #1e6823 !important
-}
-
-
-.example-appear {
-    opacity: 0.01;
-    transform: translateX(20em);
-}
-
-.example-appear.example-appear-active {
-    opacity: 1;
-    transform: translateX(0em);
-    transition: all 1000ms ease;
-}
-
-.fade-appear {
-    opacity: 0.01;
-}
-
-.fade-appear.fade-appear-active {
-    opacity: 1;
-    transition: all 1000ms ease;
-}
-
-.form-control {
-    margin: 20px;
-    margin-bottom: 7px;
-}
-
 .logo {
-    margin-left: 3%;
+    margin:25px 0;
+    text-align:center;
+}
+.logo-img {
+    width: 500px;
+    height: 200px;
+}
+/* SuperBox */
+.superbox-list {
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    width:12.5%;
+    vertical-align: top;
+    height: 295px;
+    overflow: hidden;
+}
+.superbox-img {
+    max-width:100%;
+    width:100%;
+    cursor:pointer;
+    object-fit: contain;
+
 }
 
-a > p {
-    color: #eceeef;
+
+
+.superbox-show {
+    text-align:center;
+    position:relative;
+    background: white;
+    width:100%;
+    padding:25px;
+}
+.superbox-current-img {
+    max-width:100%;
+    box-shadow:0 1px 4px #222;
+    border:1px solid white;
+}
+.superbox-img:hover {
+    opacity:0.8;
+}
+.superbox-float {
+    float:left;
+}
+.superbox-close {
+    opacity:0.7;
+    cursor:pointer;
+    position:absolute;
+    top:25px;
+    right:25px;
+    background:url(../img/close.gif) no-repeat center center;
+    width:35px;
+    height:35px;
+}
+.superbox-close:hover {
+    opacity:1;
 }
 
-.media-left {
-    display: block !important;
+#gallery {
+    margin-top: 4%;
 }
+
+.row {
+    padding: 4px;
+}
+
+#closeDetailButton {
+    display: block;
+    border: none;
+    opacity: 0.5;
+}
+
+.inputDiv {
+    padding: 0px;
+}
+
+.searchedValue {
+    height: 43px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.dropdown-menu {
+    border-top: none;
+    left: inherit !important;
+    right: 0 !important;
+}
+
+.input-group-addon {
+    background-color: white;
+}
+
+.reverseButton {
+    border: none;
+    margin-right: 4px;
+}
+
+
+
+
+/* transitions / animations */
+
+/* always present */
+.expand-transition {
+    transition: all 2s ease;
+
+}
+.expand-enter, .expand-leave {
+    opacity: 0;
+}
+
+.expand-leave {
+    width: 0%;
+}
+
+
+.expand-enter {
+    background: lightgray;
+    width: 0%;
+
+}
+
+
+.expandd-transition {
+    transition: all .9s ease;
+}
+.expandd-enter, .expandd-leave {
+    opacity: 0;
+}
+
+.expandd-leave {
+}
+
+

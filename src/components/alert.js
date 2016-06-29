@@ -6,22 +6,22 @@
  */
 import React from 'react'
 import { observer } from 'mobx-react'
-import GithubStore from '../stores/GithubStore'
+import CsStore from '../stores/CsStore'
 
 
 const Alert = observer(
     () => {
-        if (GithubStore.alert === "") {
+        if (CsStore.alert === "") {
             return <div></div>
         }
-        if (GithubStore.user.avatar_url !== "") {
+        if (CsStore.user.avatar_url !== "") {
             return <div></div>
         }
-        const selected_video = GithubStore.selectedVideo;
+        const selected_video = CsStore.selectedVideo;
         return (
             <div className="video-detail col-md-8">
                 <div class="alert alert-danger">
-                    <strong>{GithubStore.searchTerm}</strong> not found
+                    <strong>{CsStore.searchTerm}</strong> not found
                 </div>
             </div>
         )

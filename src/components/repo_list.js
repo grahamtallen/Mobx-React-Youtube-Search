@@ -4,50 +4,40 @@
 import React from 'react'
 import CounterStore from '../stores/CounterStore'
 import { observer } from 'mobx-react'
-import GithubStore from '../stores/GithubStore'
+import CsStore from '../stores/CsStore'
 import RepoListItem from './RepoListItem'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import FlipMove from 'react-flip-move'
-import Slider from './slider'
 
 const RepoList = observer(() => {
 
-    if (GithubStore.user.avatar_url === "") {
-        return <div></div>
-    }
-
-    const Repos = GithubStore.repos.map((repo) =>
+    const Repos = CsStore.items.map((item) =>
         <RepoListItem
-            key={repo.id}
-            repo={repo}
+            key={item.objectid}
+            item={item}
         />
     );
 
 
     return (
-        <div>
-            <ReactCSSTransitionGroup transitionName = "fade"
-                                     transitionAppear = {true} transitionAppearTimeout = {1000}
-                                     transitionEnter = {false} transitionLeave = {false}>
-                <div className="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.reverseOrder}>Reverse Order</button>
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.sortAlphaBeta}>Alphabetically</button>
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={GithubStore.numOfWatchers}>By # of watchers</button>
-                </div>
-                <Slider />
-                <FlipMove
-                    className="col-md-4 list-group"
-                    easing="ease-in-out"
-                    delay="0"
-                    staggerDelayBy="0"
-                    staggerDurationBy="30"
-                    duration="600"
-                    enterAnimation="elevator"
-                    leaveAnimation="elevator"
-                >
-                    { Repos }
-                </FlipMove>
-            </ReactCSSTransitionGroup>
+        <div className="superbox">
+            <div className="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={CsStore.reverseOrder}>Reverse Order</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={CsStore.sortAlphaBeta}>Alphabetically</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={CsStore.numOfWatchers}>By # of watchers</button>
+                    </div>
+                    <FlipMove
+                        className=""
+                        easing="ease-in-out"
+                        delay="0"
+                        staggerDelayBy="0"
+                        staggerDurationBy="30"
+                        duration="600"
+                        enterAnimation="accordionHorizontal"
+                        leaveAnimation="accordionHorizontal"
+                    >
+                        { Repos }
+                    </FlipMove>
         </div>
 
     )

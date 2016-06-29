@@ -11,7 +11,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Alert from './components/alert'
 
 import CounterStore from './stores/CounterStore'
-import GithubStore from './stores/GithubStore'
+import CsStore from './stores/CsStore'
 
 
 
@@ -32,15 +32,13 @@ class App extends Component {
     render() {
         return (
             <div>
+                <SearchBar />
+                <RepoList />
                 <ReactCSSTransitionGroup transitionName = "example"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
-                    <SearchBar />
-                    <Alert />
-                    <GithubDetail/>
-                    <RepoList />
                     <DevTools />
                 </ReactCSSTransitionGroup>
 

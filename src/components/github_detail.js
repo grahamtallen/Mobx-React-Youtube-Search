@@ -3,14 +3,14 @@
  */
 import React from 'react'
 import { observer } from 'mobx-react'
-import GithubStore from '../stores/GithubStore'
+import CsStore from '../stores/CsStore'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import CalendarHeatmap from 'react-calendar-heatmap';
 
 
 const GithubDetail = observer(
     () => {
-        if (GithubStore.user.avatar_url === "") {
+        if (CsStore.user.avatar_url === "") {
             return <div></div>
         }
 
@@ -27,26 +27,26 @@ const GithubDetail = observer(
                                          transitionEnter = {false} transitionLeave = {false}>
                 <div className="video-detail col-md-8">
                     <div className="">
-                        <img src={GithubStore.user.avatar_url} className="img-circle"></img>
+                        <img src={CsStore.user.avatar_url} className="img-circle"></img>
                     </div>
                     <div className="details">
                         <div>
-                            <h3>{ GithubStore.user.name }</h3>
+                            <h3>{ CsStore.user.name }</h3>
                         </div>
                         <div>
-                            { GithubStore.user.email }
+                            { CsStore.user.email }
                         </div>
                         <div>
-                            Followers: { GithubStore.user.followers }
+                            Followers: { CsStore.user.followers }
                         </div>
                         <div>
-                            <a target="_blank" href={ GithubStore.user.html_url }>{ GithubStore.user.html_url }</a>
+                            <a target="_blank" href={ CsStore.user.html_url }>{ CsStore.user.html_url }</a>
                         </div>
                     </div>
                     <CalendarHeatmap
                         endDate={new Date()}
                         numDays={400}
-                        values={GithubStore.returnDates()}
+                        values={CsStore.returnDates()}
                         titleForValue={(value) => `Date is `}
                         tooltipDataAttrs={customTooltipDataAttrs}
                         onClick={customOnClick}

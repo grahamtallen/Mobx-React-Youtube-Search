@@ -8,8 +8,9 @@ import $ from 'jquery'
 import repos from './repoData'
 import Sortable from 'react-sortablejs';
 import _ from 'lodash'
+import csData from './demoJSON'
 
-class GithubStore {
+class CsStore {
     @observable repos_url = "";
     @observable repos = repos;
     @observable searchTerm = '';
@@ -18,6 +19,8 @@ class GithubStore {
         avatar_url: "",
         name: "Loading..."
     };
+
+    @observable items = csData.data;
 
     @observable reposCount = 10;
 
@@ -64,15 +67,15 @@ class GithubStore {
     };
 
     reverseOrder = (evt) => {
-        this.repos = this.repos.reverse();
+        this.items = this.items.reverse();
     };
 
     sortAlphaBeta = (evt) => {
-        this.repos = this.repos.sort(function(a, b) {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        this.items = this.items.sort(function(a, b) {
+            if (a.title.toLowerCase() < b.title.toLowerCase()) {
                 return -1;
             }
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+            if (a.title.toLowerCase() > b.title.toLowerCase()) {
                 return 1;
             }
             return 0;
@@ -95,4 +98,4 @@ class GithubStore {
 }
 
 
-export default new GithubStore();
+export default new CsStore();
