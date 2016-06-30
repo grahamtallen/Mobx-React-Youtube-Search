@@ -19,7 +19,7 @@ class SearchBar extends Component {
                 <div className="inputDiv col-md-4">
                     <div className="dropdown" align="right">
 
-                        <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button onClick={() => {CsStore.displayValue = "objecttype"}} className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fa fa-sort"></i>
                                 <span className="caret"></span>
                         </button>

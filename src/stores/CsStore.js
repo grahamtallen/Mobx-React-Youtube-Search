@@ -21,6 +21,7 @@ class CsStore {
         name: "Loading..."
     };
     @observable itemSelected = false;
+    @observable displayValue = "inventorynumber";
 
     delayedFilterTerm = () => {  this.delayedTerm = this.filterTerm  };
 

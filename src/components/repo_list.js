@@ -30,6 +30,11 @@ const RepoList = observer(() => {
 
     return (
         <div className="superbox">
+            <ReactCSSTransitionGroup transitionName = "fade"
+                                     transitionAppear = {true}
+                                     transitionAppearTimeout = {1000}
+                                     transitionEnter = {false}
+                                     transitionLeave = {false}>
                     <FlipMove
                         className=""
                         easing="ease-in-out"
@@ -42,6 +47,7 @@ const RepoList = observer(() => {
                     >
                         { Repos }
                     </FlipMove>
+            </ReactCSSTransitionGroup>
         </div>
 
     )

@@ -3,18 +3,13 @@ import { observer } from 'mobx-react'
 import CsStore from '../stores/CsStore.js'
 
 const RepoListItem = observer(
-
     ({item}) => {
-
-        var sessionId = CsStore.sessionid;
-
         return (
             <div onClick={() => { CsStore.selected_item = item; CsStore.itemSelected = true; console.log(CsStore.itemSelected) }} className="superbox-list">
-                        <p className="searchedValue">{ item.inventorynumber }</p>
+                        <p className="searchedValue">{ item[CsStore.displayValue] }</p>
                         <img className="superbox-img"
                              src={CsStore.getItemUrl(item)} />
                         <p>{ item.title }</p>
-                        <p>{CsStore.sessionid}</p>
             </div>
         )
     });

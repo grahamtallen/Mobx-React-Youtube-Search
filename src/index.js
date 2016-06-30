@@ -32,16 +32,16 @@ class App extends Component {
     render() {
         return (
             <div>
-                <ReactCSSTransitionGroup transitionName = "example"
+                <ReactCSSTransitionGroup transitionName = "fade"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
                     <div id="gallery" className="wrapper">
-                    <SearchBar />
-                    <RepoList />
-                    <ItemDetail />
-                         <DevTools />
+                        <SearchBar />
+                        <RepoList />
+                        <ItemDetail />
+                        <DevTools />
 
                     </div>
                 </ReactCSSTransitionGroup>
