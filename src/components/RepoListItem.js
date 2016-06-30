@@ -8,8 +8,9 @@ const RepoListItem = observer(
             <div onClick={() => { CsStore.selected_item = item; CsStore.itemSelected = true; console.log(CsStore.itemSelected) }} className="superbox-list">
                         <p className="searchedValue">{ item[CsStore.displayValue] }</p>
                         <img className="superbox-img"
-                             src={CsStore.getItemUrl(item)} />
+                             src={`https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${CsStore.sessionid}`} />
                         <p>{ item.title }</p>
+                        <p>{ CsStore.sessionid }</p>
             </div>
         )
     });

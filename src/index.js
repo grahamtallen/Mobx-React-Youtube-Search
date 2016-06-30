@@ -28,10 +28,18 @@ class App extends Component {
 
     }
 
+    componentDidMount() {
+        /*CsStore.login().then((res) => {
+            CsStore.sessionid = res;
+            console.log(CsStore.sessionid)
+        })*/
+    }
+
 
     render() {
         return (
             <div>
+
                 <ReactCSSTransitionGroup transitionName = "fade"
                                          transitionAppear = {true}
                                          transitionAppearTimeout = {1000}

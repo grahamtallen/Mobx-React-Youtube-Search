@@ -94,6 +94,7 @@
     "react": "^0.14.8",
     "react-addons-css-transition-group": "^15.1.0",
     "react-addons-shallow-compare": "^15.1.0",
+    "react-bootstrap": "^0.29.5",
     "react-dimensions": "^1.2.0",
     "react-dom": "^0.14.8",
     "react-flip-move": "^2.4.0",

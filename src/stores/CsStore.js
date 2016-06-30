@@ -28,27 +28,23 @@ class CsStore {
 
     @observable items = csData.data;
     @observable selected_item = this.items[0];
+    @observable loggedIn = false;
 
 
     @observable reposCount = 10;
 
-    @observable sessionid = "ed27e816-45ba-4835-8a2a-ce583109b5c2";
+    @observable sessionid = "2e7ac04e-5aab-4f7c-8998-51c804488a5d";
 
     login() {
-
+            // TODO need async
             return $.ajax({
 
             url: "https://privateapi.collectorsystems.com/authenticate.aspx",
             type: 'POST',
             data: 'UserName=way2b1api&Password=uGsQgoQHzxkx22',
             success: function (data) {
-                this.sessionId = data.result.sessionid;
-
-
-            },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
+                this.loggedIn = true;
+                return data.result.sessionid;
             }
         })
     }
@@ -120,6 +116,18 @@ class CsStore {
         });
     };
 
+    sortByKey = (key) => {
+        this.items = this.items.sort(function(a, b) {
+            if (a[key].toLowerCase() < b[key].toLowerCase()) {
+                return -1;
+            }
+            if (a[key].toLowerCase() > b[key].toLowerCase()) {
+                return 1;
+            }
+            return 0;
+        });
+    };
+
     numOfWatchers = (evt) => {
         console.log(this.repos[0]);
         this.repos = this.repos.sort(function(a, b) {
@@ -133,6 +141,20 @@ class CsStore {
         });
         console.log(this.repos[this.repos.length - 1]);
     };
+
+    filterItems = (item) => {
+        var zero = 0;
+        _.forEach(item, function(value, key) {
+            if (typeof value === "string") {
+                if (value.indexOf(CsStore.delayedTerm) === -1) {
+                } else {
+                    zero++;
+                }
+            }
+        });
+        return zero
+    }
+
 }
 
 
