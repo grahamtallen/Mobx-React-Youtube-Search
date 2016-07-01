@@ -6,13 +6,35 @@ import { observer } from 'mobx-react'
 import CsStore from '../stores/CsStore'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import CalendarHeatmap from 'react-calendar-heatmap';
-
+import Coverflow from 'react-coverflow'
 
 const ItemDetail = observer(
     () => {
         if (!CsStore.itemSelected) {
             return <div></div>
         }
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+        const Items = CsStore.items.map((item) => {
+               /*if (item.title !== "White and Yellow Package") {
+                    return;
+                } */
+                return <img src={`https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${CsStore.sessionid}`}
+                            alt={item.title}
+                            key={item.objectid}
+                            onClick={ () => {
+                                CsStore.selected_item = item;
+                            }}
+                />
+
+            }
+        );
+
         return (
             <div>
                 <ReactCSSTransitionGroup transitionName = "fade"
@@ -36,7 +58,10 @@ const ItemDetail = observer(
                                     </tr>
                                     <tr>
                                         <td className="field">Status</td>
-                                        <td className="status fieldAttribute">{ CsStore.selected_item.objectstatus }</td>
+                                        <td onClick={ () => {
+                                                        console.log("click");
+                                                        CsStore.filterTerm = CsStore.selected_item.objectstatus
+                                                        }} className="status fieldAttribute">{ CsStore.selected_item.objectstatus }</td>
                                     </tr>
                                     <tr>
                                         <td className="field">Date</td>
@@ -44,7 +69,7 @@ const ItemDetail = observer(
                                     </tr>
                                     <tr>
                                         <td className="field">Inventory Number</td>
-                                        <td className="inventory fieldAttribute">{ CsStore.selected_item.inventorynumber }}</td>
+                                        <td className="inventory fieldAttribute">{ CsStore.selected_item.inventorynumber }</td>
                                     </tr>
                                     <tr>
                                         <td className="field">Location</td>
@@ -61,6 +86,23 @@ const ItemDetail = observer(
                                     </tbody>
                                 </table>
                             </div>
+                            <Coverflow
+                                displayQuantityOfSide={2}
+                                navigation={true}
+                                enableHeading={true}
+                                media={{
+                                  '@media (max-width: 900px)': {
+                                    width: '600px',
+                                    height: '500px'
+                                  },
+                                  '@media (min-width: 900px)': {
+                                    width: '960px',
+                                    height: '500px'
+                                  }
+                                }}
+                            >
+                                {Items}
+                            </Coverflow>
                         </div>
                     </div>
                 </ReactCSSTransitionGroup>

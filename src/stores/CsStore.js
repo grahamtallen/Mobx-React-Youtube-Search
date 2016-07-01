@@ -28,26 +28,33 @@ class CsStore {
 
     @observable items = csData.data;
     @observable selected_item = this.items[0];
-    @observable loggedIn = false;
+    @observable loggedIn = true;
 
 
     @observable reposCount = 10;
 
-    @observable sessionid = "2e7ac04e-5aab-4f7c-8998-51c804488a5d";
+    @observable sessionid = "";
 
     login() {
-            // TODO need async
             return $.ajax({
-
             url: "https://privateapi.collectorsystems.com/authenticate.aspx",
             type: 'POST',
             data: 'UserName=way2b1api&Password=uGsQgoQHzxkx22',
             success: function (data) {
-                this.loggedIn = true;
                 return data.result.sessionid;
             }
         })
     }
+
+    indexMounted = async () => {
+            let sessionid = await this.login();
+            console.log(sessionid.result.sessionid);
+            this.sessionid = sessionid.result.sessionid;
+            this.loggedIn = true;
+            return sessionid.result.sessionid; /*
+            this.sessionid = sessionid;
+            console.log(this.sessionid) */
+    };
 
     getItemUrl(item) {
         let url = `https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${this.sessionid}`;
@@ -142,17 +149,17 @@ class CsStore {
         console.log(this.repos[this.repos.length - 1]);
     };
 
-    filterItems = (item) => {
-        var zero = 0;
+    filterItems = (item, term) => {
+        var one = -1;
         _.forEach(item, function(value, key) {
             if (typeof value === "string") {
-                if (value.indexOf(CsStore.delayedTerm) === -1) {
+                if (value.indexOf(term) === -1) {
                 } else {
-                    zero++;
+                    one = 1;
                 }
             }
         });
-        return zero
+        return one
     }
 
 }

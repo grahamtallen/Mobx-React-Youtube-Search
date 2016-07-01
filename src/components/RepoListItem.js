@@ -10,7 +10,6 @@ const RepoListItem = observer(
                         <img className="superbox-img"
                              src={`https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${CsStore.sessionid}`} />
                         <p>{ item.title }</p>
-                        <p>{ CsStore.sessionid }</p>
             </div>
         )
     });

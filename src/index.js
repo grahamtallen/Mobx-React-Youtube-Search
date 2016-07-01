@@ -28,12 +28,11 @@ class App extends Component {
 
     }
 
-    componentDidMount() {
-        /*CsStore.login().then((res) => {
-            CsStore.sessionid = res;
-            console.log(CsStore.sessionid)
-        })*/
-    }
+    componentDidMount = () => {
+        CsStore.loggedIn = true;
+        console.log(CsStore.loggedIn);
+        CsStore.indexMounted();
+    };
 
 
     render() {

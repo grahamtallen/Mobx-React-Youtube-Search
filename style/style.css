@@ -213,6 +213,15 @@ tr td.field, tr td.fieldAttribute {
     padding: 10px;
 }
 
+.galleryImgDiv {
+    margin-left: 131px;
+    float: left;
+}
+
+.currentObjectTable {
+    float: left;
+}
+
 #leftColumnClone {
     margin: 6%;
 }

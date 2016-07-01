@@ -10,7 +10,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import FlipMove from 'react-flip-move'
 
 const RepoList = observer(() => {
-    if (CsStore.loggedIn) {
+    if (!CsStore.loggedIn) {
         return <div></div>
     }
     if (CsStore.itemSelected) {
@@ -19,8 +19,7 @@ const RepoList = observer(() => {
 
     const Repos = CsStore.items.map((item) => {
 
-
-            if (item.title.indexOf(CsStore.delayedTerm) === -1) {
+            if (CsStore.filterItems(item, CsStore.delayedTerm) === -1) {
                 return;
             }
             return <RepoListItem
