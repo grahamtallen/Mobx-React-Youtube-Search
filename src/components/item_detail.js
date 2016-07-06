@@ -20,11 +20,13 @@ const ItemDetail = observer(
             slidesToShow: 1,
             slidesToScroll: 1
         };
-        const Items = CsStore.items.map((item) => {
-               /*if (item.title !== "White and Yellow Package") {
-                    return;
-                } */
-                return <img src={`https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${CsStore.sessionid}`}
+        var Items = CsStore.items.filter((item) => {
+            return item.locationname === CsStore.selected_item.locationname && item !== CsStore.selected_item
+        });
+        Items = Items.map((item) => {
+                return <img className="ObjectCover"
+                            url="#"
+                            src={`https://privateapi.collectorsystems.com/12940/objects/${item.objectid}/mainimage?width=300&height=300&quality=100&sessionid=${CsStore.sessionid}`}
                             alt={item.title}
                             key={item.objectid}
                             onClick={ () => {
@@ -86,6 +88,7 @@ const ItemDetail = observer(
                                     </tbody>
                                 </table>
                             </div>
+                            <h4 className="otherObjects"> Other Objects at { CsStore.selected_item.locationname } </h4>
                             <Coverflow
                                 displayQuantityOfSide={2}
                                 navigation={true}
@@ -97,7 +100,7 @@ const ItemDetail = observer(
                                   },
                                   '@media (min-width: 900px)': {
                                     width: '960px',
-                                    height: '500px'
+                                    height: '650px'
                                   }
                                 }}
                             >

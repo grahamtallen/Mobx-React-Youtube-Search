@@ -52,7 +52,6 @@ class SearchBar extends Component {
         if(target.charCode==13){
             CsStore.delayedFilterTerm()
         }
-
     }
 };
 

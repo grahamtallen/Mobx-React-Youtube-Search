@@ -10,6 +10,16 @@
     font-family: "Roboto";
 }
 
+.coverflow__cover__1fMzH {
+    object-fit: contain;
+    background: white;
+}
+
+.otherObjects {
+    display: inline-block;
+    padding: 10px;
+}
+
 .objectDescriptionText, .descriptionHeading {
     display: inherit;
     position: absolute;

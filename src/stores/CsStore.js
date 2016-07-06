@@ -6,7 +6,6 @@ import YTSearch from 'youtube-api-search'
 const API_KEY = "AIzaSyDN8R0gS8T29nr6aFgYXKyGLwe42BRTkok";
 import $ from 'jquery'
 import repos from './repoData'
-import Sortable from 'react-sortablejs';
 import _ from 'lodash'
 import csData from './demoJSON'
 

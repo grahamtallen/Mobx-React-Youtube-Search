@@ -42,7 +42,7 @@ const RepoList = observer(() => {
                         easing="ease-in-out"
                         delay="0"
                         staggerDelayBy="0"
-                        staggerDurationBy="30"
+                        staggerDurationBy="40"
                         duration="700"
                         enterAnimation="accordionHorizontal"
                         leaveAnimation="elevator"
