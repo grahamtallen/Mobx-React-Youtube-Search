@@ -15,6 +15,7 @@ class SearchBar extends Component {
 
 
     render() {
+        if (!CsStore.login.loggedIn) return <div></div>
         return (
             <div className="row">
                 <div className="inputDiv col-md-6">

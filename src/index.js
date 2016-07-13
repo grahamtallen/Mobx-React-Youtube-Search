@@ -9,6 +9,7 @@ import ItemDetail from './components/item_detail'
 import Counter from './components/counter'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Alert from './components/alert'
+import Login from './components/login'
 
 import CounterStore from './stores/CounterStore'
 import CsStore from './stores/CsStore'
@@ -29,9 +30,7 @@ class App extends Component {
     }
 
     componentDidMount = () => {
-        CsStore.loggedIn = true;
-        console.log(CsStore.loggedIn);
-        CsStore.indexMounted();
+
     };
 
 
@@ -45,6 +44,7 @@ class App extends Component {
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
                     <div id="gallery" className="wrapper">
+                        <Login/>
                         <SearchBar />
                         <RepoList />
                         <ItemDetail />

@@ -19,6 +19,11 @@ class CsStore {
         avatar_url: "",
         name: "Loading..."
     };
+    @observable login = {
+        username: '',
+        password: 'uGsQgoQHzxkx22',
+        loggedIn: false
+    };
     @observable itemSelected = false;
     @observable displayValue = "inventorynumber";
 
@@ -34,22 +39,22 @@ class CsStore {
 
     @observable sessionid = "";
 
-    login() {
+    loginFunc() {
             return $.ajax({
             url: "https://privateapi.collectorsystems.com/authenticate.aspx",
             type: 'POST',
-            data: 'UserName=way2b1api&Password=uGsQgoQHzxkx22',
+            data: 'UserName=' + this.login.username + '&Password=' + this.login.password,
             success: function (data) {
+                console.log(data);
                 return data.result.sessionid;
             }
         })
     }
 
     indexMounted = async () => {
-            let sessionid = await this.login();
-            console.log(sessionid.result.sessionid);
+            let sessionid = await this.loginFunc();
             this.sessionid = sessionid.result.sessionid;
-            this.loggedIn = true;
+            this.login.loggedIn = true;
             return sessionid.result.sessionid; /*
             this.sessionid = sessionid;
             console.log(this.sessionid) */
