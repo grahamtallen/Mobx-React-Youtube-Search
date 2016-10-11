@@ -8780,7 +8780,7 @@ export default [
                         "task_id": "194",
                         "assignee": {
                             "json": {},
-                            "name": "Michael Castillo",
+                            "name": "Yvonne Wilson",
                             "email": "michael@way2b1.com",
                             "avatar": {
                                 "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"

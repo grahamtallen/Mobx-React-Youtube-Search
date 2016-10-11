@@ -12,24 +12,12 @@ import Alert from './components/alert'
 import Login from './components/login'
 import Users from './components/Users'
 import CounterStore from './stores/CounterStore'
+import UsersStore from './stores/UsersStore'
 import CsStore from './stores/CsStore'
 import App from './forks/react-shopping-cart/js/components/Application'
 import {when, autorun, observable} from 'mobx'
 
 
-import users from './data/people'
-var roles = ['Maintenace', 'Managment', 'Accounting', 'Pilot', 'Executive', 'Admin', 'Housekeeping', 'Contractor', 'Butler']
-var imgs = ['http://semantic-ui.com/images/avatar2/small/kristy.png',
-            'http://semantic-ui.com/images/avatar2/small/matthew.png',
-            'http://semantic-ui.com/images/avatar2/small/elyse.png',
-            'http://semantic-ui.com/images/avatar2/small/molly.png',
-            'http://semantic-ui.com/images/avatar/small/jenny.jpg',
-            'http://semantic-ui.com/images/avatar/large/elliot.jpg'
-            ]
-
-var people = users.map((user, index) => {
-    return { title: user.name, price: 299.99, id: index, imgSrc: imgs[Math.floor(Math.random()*5)], role: roles[Math.floor(Math.random()*7)]}
-});
 
 
 
@@ -42,8 +30,6 @@ import DevTools from 'mobx-react-devtools';
 
 // PseudoStore
 
-var groupedItems = observable([]);
-
 @observer
 class Apple extends Component {
     constructor(props) {
@@ -51,15 +37,29 @@ class Apple extends Component {
         this.state = {
         };
         var updateItems = autorun(() => {
-            console.log("new value = ", groupedItems)
+
+            //console.log("new value = ", groupedItems)
         })
 
     }
     groupValue (arr) {
-        groupedItems = arr
+    }
+
+    handleDroppedItem(droppedItem) {
+        UsersStore.groupedUsers.push(droppedItem);
+        var array = UsersStore.users.map((user) => user.name);
+        var index = array.indexOf(droppedItem.title);
+        if (index > -1) {
+            UsersStore.users.splice(index, 1);
+        }
+        //console.log(droppedItem);
+        //items = items.filter((item) => {
+        //    return item.title !== droppedItem.title
+        //});
     }
 
     render() {
+        console.log('rerendered')
         return (
             <div>
 
@@ -68,8 +68,8 @@ class Apple extends Component {
                                          transitionAppearTimeout = {1000}
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
-                        <App groupValue={this.groupValue} items={people} />
-
+                        <App handleDroppedItem={this.handleDroppedItem} groupValue={this.groupValue} items={UsersStore.userDisplayObjs} />
+                    <DevTools />
                 </ReactCSSTransitionGroup>
 
             </div>
