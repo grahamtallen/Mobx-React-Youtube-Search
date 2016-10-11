@@ -451,6 +451,9 @@ img {
     width: 0%;
 }
 
+.readWrite {
+    display: inline;
+}
 
 .expand-enter {
     background: lightgray;
