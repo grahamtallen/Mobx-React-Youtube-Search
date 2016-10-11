@@ -18,7 +18,6 @@ import App from './forks/react-shopping-cart/js/components/Application'
 
 
 import users from './data/people'
-var AppComponent = React.createFactory(App);
 var roles = ['Maintenace', 'Managment', 'Accounting', 'Pilot', 'Executive', 'Admin', 'Housekeeping', 'Contractor', 'Butler']
 
 var people = users.map((user, index) => {
@@ -41,6 +40,9 @@ class Apple extends Component {
         };
 
     }
+    onDrop (arr) {
+        console.log(arr)
+    }
 
     render() {
         return (
@@ -51,8 +53,7 @@ class Apple extends Component {
                                          transitionAppearTimeout = {1000}
                                          transitionEnter = {false}
                                          transitionLeave = {false}>
-                        <AppComponent products={people} />
-                        <DevTools />
+                        <App onDrop={this.onDrop} items={people} />
 
                 </ReactCSSTransitionGroup>
 
